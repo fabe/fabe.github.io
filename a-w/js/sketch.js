@@ -50,7 +50,7 @@ function kimonoCallback(data) {
 };
 
 $.ajax({
-    "url": "http://fabe.github.io/a-w/data/weather-" + cityCode + ".json",
+    "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json",
         "crossDomain": false,
         "dataType": "jsonp"
 });

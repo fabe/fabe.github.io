@@ -30,6 +30,7 @@ var lowest = 0;
 var c1, c2, c3;
 
 function kimonoCallback(data) {
+    console.log(data);
     var w = data.results.collection1;
     for (var i = 0; i < w.length; i++) {
         var celsius = Math.round(w[i].avg);

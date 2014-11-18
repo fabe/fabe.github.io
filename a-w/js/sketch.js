@@ -50,14 +50,14 @@ function kimonoCallback(data) {
     lon = data.lon;
 };
 
-$.ajax({
+function preload() {
+    mymap = loadImage("img/world.png");
+    
+    $.ajax({
     "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json",
         "crossDomain": false,
         "dataType": "jsonp"
-});
-
-function preload() {
-    mymap = loadImage("img/world.png");
+    });
 };
 
 function setup() {

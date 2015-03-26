@@ -1,9 +1,9 @@
 // #########################
 
 var cities = ["be", "ct", "mo", "rk", "sf"];
-var randomCity = parseInt(Math.random() * cities.length); console.log("randomCity: " + randomCity);
+var randomCity = parseInt(Math.random() * cities.length);
 
-var cityCode = cities[randomCity]; console.log("cityCode: " + cityCode);
+var cityCode = cities[randomCity];
 var differentColors = false;
 
 // #########################
@@ -35,12 +35,12 @@ function preload() {
     $.ajax({
     "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json?callback=kimonoCallback",
         "crossDomain": false,
-        "dataType": "json"
+        "dataType": "jsonp"
     });
 };
 
 function kimonoCallback(data) {
-    console.log("Data: " + data);
+    console.log(data);
     var w = data.results.collection1;
     for (var i = 0; i < w.length; i++) {
         var celsius = Math.round(w[i].avg);
@@ -58,18 +58,12 @@ function kimonoCallback(data) {
 
     lat = data.lat;
     lon = data.lon;
-
 };
 
 function setup() {
     createCanvas(mymap.width, mymap.height - square);
     x = map(lon, -180, 180, 0, width);
     y = map(lat, 90, -90, 0, height);
-    
-    console.log("city: " + city);
-    console.log("lat: " + lat);
-    console.log("lon: " + lon);
-    console.log("avg: " + avg);
 
     // image(mymap, 0, 0);
 

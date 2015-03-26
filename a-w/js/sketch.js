@@ -33,35 +33,36 @@ function preload() {
     mymap = loadImage("img/world.png");
     
     $.ajax({
-    "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json?callback=kimonoCallback",
+    "url": "../data/weather-" + cityCode + ".json?callback=kimonoCallback",
         "crossDomain": false,
         "dataType": "jsonp"
     });
-    function kimonoCallback(data) {
-        console.log("Data: " + data);
-        var w = data.results.collection1;
-        for (var i = 0; i < w.length; i++) {
-            var celsius = Math.round(w[i].avg);
-            counter.push(celsius);
-        }
-        largest = Math.max.apply(Math, counter);
-        lowest = Math.min.apply(Math, counter);
+};
+
+function kimonoCallback(data) {
+    console.log("Data: " + data);
+    var w = data.results.collection1;
+    for (var i = 0; i < w.length; i++) {
+        var celsius = Math.round(w[i].avg);
+        counter.push(celsius);
+    }
+    largest = Math.max.apply(Math, counter);
+    lowest = Math.min.apply(Math, counter);
+
+    for (var i = 0; i < counter.length; i++) {
+        sum += parseInt(counter[i], 10);
+    }
+    avg = sum / counter.length;
+
+    city = data.city;
+
+    lat = data.lat;
+    lon = data.lon;
     
-        for (var i = 0; i < counter.length; i++) {
-            sum += parseInt(counter[i], 10);
-        }
-        avg = sum / counter.length;
-    
-        city = data.city;
-    
-        lat = data.lat;
-        lon = data.lon;
-        
-        console.log("city: " + city);
-        console.log("lat: " + lat);
-        console.log("lon: " + lon);
-        console.log("avg: " + avg);
-    };
+    console.log("city: " + city);
+    console.log("lat: " + lat);
+    console.log("lon: " + lon);
+    console.log("avg: " + avg);
 };
 
 function setup() {

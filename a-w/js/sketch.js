@@ -1,9 +1,9 @@
 // #########################
 
 var cities = ["be", "ct", "mo", "rk", "sf"];
-var randomCity = parseInt(Math.random() * cities.length);
+var randomCity = parseInt(Math.random() * cities.length); console.log("randomCity: " + randomCity);
 
-var cityCode = cities[randomCity];
+var cityCode = cities[randomCity]; console.log("cityCode: " + cityCode);
 var differentColors = false;
 
 // #########################
@@ -40,7 +40,7 @@ function preload() {
 };
 
 function kimonoCallback(data) {
-    console.log(data);
+    console.log("Data: " + data);
     var w = data.results.collection1;
     for (var i = 0; i < w.length; i++) {
         var celsius = Math.round(w[i].avg);
@@ -58,6 +58,11 @@ function kimonoCallback(data) {
 
     lat = data.lat;
     lon = data.lon;
+    
+    console.log("city: " + city);
+    console.log("lat: " + lat);
+    console.log("lon: " + lon);
+    console.log("avg: " + avg);
 };
 
 function setup() {

@@ -33,9 +33,9 @@ function preload() {
     mymap = loadImage("img/world.png");
     
     $.ajax({
-    "url": "../data/weather-" + cityCode + ".json?callback=kimonoCallback",
+    "url": "./data/weather-" + cityCode + ".json?callback=kimonoCallback",
         "crossDomain": false,
-        "dataType": "jsonp"
+        "dataType": "json"
     });
 };
 
@@ -58,17 +58,18 @@ function kimonoCallback(data) {
 
     lat = data.lat;
     lon = data.lon;
-    
-    console.log("city: " + city);
-    console.log("lat: " + lat);
-    console.log("lon: " + lon);
-    console.log("avg: " + avg);
+
 };
 
 function setup() {
     createCanvas(mymap.width, mymap.height - square);
     x = map(lon, -180, 180, 0, width);
     y = map(lat, 90, -90, 0, height);
+    
+    console.log("city: " + city);
+    console.log("lat: " + lat);
+    console.log("lon: " + lon);
+    console.log("avg: " + avg);
 
     // image(mymap, 0, 0);
 

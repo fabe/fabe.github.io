@@ -29,6 +29,16 @@ var lowest = 0;
 
 var c1, c2, c3;
 
+function preload() {
+    mymap = loadImage("img/world.png");
+    
+    $.ajax({
+    "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json?callback=kimonoCallback",
+        "crossDomain": false,
+        "dataType": "jsonp"
+    });
+};
+
 function kimonoCallback(data) {
     console.log(data);
     var w = data.results.collection1;
@@ -48,16 +58,6 @@ function kimonoCallback(data) {
 
     lat = data.lat;
     lon = data.lon;
-};
-
-function preload() {
-    mymap = loadImage("img/world.png");
-    
-    $.ajax({
-    "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json",
-        "crossDomain": false,
-        "dataType": "jsonp"
-    });
 };
 
 function setup() {

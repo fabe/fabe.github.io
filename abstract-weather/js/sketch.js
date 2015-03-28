@@ -33,7 +33,7 @@ function preload() {
     mymap = loadImage("img/world.png");
     
     $.ajax({
-    "url": "//fabe.github.io/a-w/data/weather-" + cityCode + ".json?callback=kimonoCallback",
+    "url": "//fabe.github.io/abstract-weather/data/weather-" + cityCode + ".json?callback=kimonoCallback",
         "crossDomain": false,
         "dataType": "jsonp"
     });

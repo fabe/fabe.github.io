@@ -1,7 +1,7 @@
 // #########################
 
 var cities = ["be", "ct", "mo", "rk", "sf"];
-var randomCity = parseInt(Math.random() * cities.length, 10);
+var randomCity = parseInt(Math.random() * cities.length);
 
 var cityCode = cities[randomCity];
 var differentColors = false;
@@ -31,13 +31,15 @@ var c1, c2, c3;
 
 function preload() {
     mymap = loadImage("img/world.png");
-}
-
-$.ajax({
+    
+    $.ajax({
     "url": "//fabe.github.io/abstract-weather/data/weather-" + cityCode + ".json?callback=kimonoCallback",
         "crossDomain": false,
         "dataType": "jsonp"
-}).done(function () {
+    });
+};
+
+function kimonoCallback(data) {
     console.log(data);
     var w = data.results.collection1;
     for (var i = 0; i < w.length; i++) {
@@ -47,8 +49,8 @@ $.ajax({
     largest = Math.max.apply(Math, counter);
     lowest = Math.min.apply(Math, counter);
 
-    for (var k = 0; k < counter.length; k++) {
-        sum += parseInt(counter[k], 10);
+    for (var i = 0; i < counter.length; i++) {
+        sum += parseInt(counter[i], 10);
     }
     avg = sum / counter.length;
 
@@ -56,7 +58,7 @@ $.ajax({
 
     lat = data.lat;
     lon = data.lon;
-});
+};
 
 function setup() {
     createCanvas(mymap.width, mymap.height - square);
@@ -69,7 +71,7 @@ function setup() {
 
 
 
-    if (differentColors === true) {
+    if (differentColors == true) {
         if (colorIndicator < 25) {
             c1 = color(50, 165, 160);
             c2 = color(217, 235, 161);
@@ -101,7 +103,9 @@ function setup() {
     $("#city").css({
         color: c3.colorString
     });
+};
 
+function draw() {
     for (var j = 0; j <= 364; j++) {
         var lerp = map(counter[j], lowest, largest, 0, 1);
 
@@ -126,4 +130,15 @@ function setup() {
 
     line(0, y, width, y);
     line(x, 0, x, width);
-}
+
+    /* 
+    city = city.replace(/[aeiou]/ig,'').toUpperCase();
+    textSize(200);
+    textFont("Apercu, Helvetica");
+    textStyle(BOLD);
+    textAlign(CENTER);
+    noStroke();
+    fill(26, 25, 25);
+    text(city, 0, 0, width, height);
+    */
+};

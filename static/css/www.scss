@@ -111,6 +111,23 @@ section {
   margin-bottom: 4em;
 }
 
+picture {
+  display: inline-block;
+  overflow: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  transform: translate(0, -4px) scale(0.99);
+  transform-origin: bottom;
+  transition: all .3s cubic-bezier(0.35, 1.6, 0.7, 1);
+  will-change: transform, box-shadow;
+  box-shadow: 0 15px 35px rgba(#32325e, 0.1), 0 5px 15px rgba(#000, 0.07);
+
+  &:hover {
+    transform: translate(0, -4px) scale(1);
+    box-shadow: 0 20px 45px rgba(#32325e, 0.12), 0 10px 25px rgba(#000, 0.09);
+  }
+}
+
 .screenshot {
   padding: 4em;
   background-color: #eee;

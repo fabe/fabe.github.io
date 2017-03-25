@@ -184,7 +184,7 @@
       const bBox = el.getBoundingClientRect();
       const width = bBox.width / 2;
       const height = bBox.height / 2;
-      const limit = 2.5;
+      const limit = 3;
       const rotateX = (height - offsetY) * (limit / height);
       const rotateY = (width - offsetX) * (limit / width) * -1;
       el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;

@@ -168,10 +168,33 @@
     </div>
   </section>
   <ol>
-    <li><a href="mailto:desk@fabianschultz.com">desk@fabianschultz.com</a></li>
+    <li>📬 desk@fabianschultz.com</li>
     <li><a href="//twitter.com/fschultz_">Twitter</a></li>
     <li><a href="//github.com/fabe">GitHub</a></li>
     <li><a href="//stackoverflow.com/users/6941627/fabian-schultz?tab=profile">StackOverflow</a></li>
   </ol>
+
+  <script>
+    const pictures = document.querySelectorAll('picture');
+
+    function rotate(e, el) {
+      const offsetX = e.offsetX;
+      const offsetY = e.offsetY;
+      const bBox = el.getBoundingClientRect();
+      const width = bBox.width / 2;
+      const height = bBox.height / 2;
+      const limit = 2.5;
+      const rotateX = (height - offsetY) * (limit / height);
+      const rotateY = (width - offsetX) * (limit / width) * -1;
+      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    };
+
+    [].forEach.call(pictures, (el) => {
+      el.onmouseenter = e => rotate(e, el);
+      el.onmousemove = e => rotate(e, el);
+      el.onmouseleave = e =>
+        el.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  </script>
 </body>
 </html>

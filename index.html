@@ -14,6 +14,28 @@
   </header>
   <section>
     <hgroup>
+      <h2>Delivery</h2>
+        <ul class="tags">
+          <li class="date">Q2 2017</li>
+          <li>Design</li>
+          <li>Frontend-Development</li>
+          <li>Backend-Development</li>
+          <li>React.js</li>
+        </ul>
+      </hgroup>
+    <div class="screenshot">
+      <a href="https://use.delivery">
+        <picture>
+        <source media="(max-width: 700px)" srcset="/static/img/delivery.png 1x">
+        <source media="(min-width: 700px)" srcset="/static/img/delivery.png 1x,
+        /static/img/delivery@2x.png 2x">
+        <img src="/static/img/delivery.png" />
+      </picture>
+      </a>
+    </div>
+  </section>
+  <section>
+    <hgroup>
       <h2>Least Authority Website</h2>
         <ul class="tags">
           <li class="date">Q1 2017</li>
@@ -176,7 +198,7 @@
   </ol>
 
   <script>
-    const pictures = document.querySelectorAll('picture');
+    const pictures = document.querySelectorAll('picture, video');
 
     function rotate(e, el) {
       const offsetX = e.offsetX;

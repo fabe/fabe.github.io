@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="/static/css/www.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500">
+  <link rel="shortcut icon" href="/static/img/favicon.ico">
+</head>
+<body>
+
+  <header>
+    <h1>{{ site.title }}</h1>
+  </header>
+
+  {{#work}}
+  <section>
+    <hgroup>
+      <h2>{{title}}</h2>
+        <ul class="tags">
+          <li class="date">{{date}}</li>
+          {{#tags}}
+          <li>{{.}}</li>
+          {{/tags}}
+        </ul>
+      </hgroup>
+    <div class="screenshot">
+      {{#url}}<a href="{{url}}">{{/url}}
+        {{#isBrowser}}
+          <picture>
+            <source media="(max-width: 700px)" srcset="/static/img/{{image}}.png 1x">
+            <source media="(min-width: 700px)" srcset="/static/img/{{image}}.png 1x,
+            /static/img/{{image}}@2x.png 2x">
+            <img src="/static/img/{{image}}.png" />
+          </picture>
+        {{/isBrowser}}
+
+        {{^isBrowser}}
+          {{#image}}
+            <img class="third" src="/static/img/{{.}}.png"/>
+          {{/image}}
+        {{/isBrowser}}
+      {{#url}}</a>{{/url}}
+    </div>
+  </section>
+  {{/work}}
+
+  <ol>
+    <li>📬 desk@fabianschultz.com</li>
+    <li><a href="//twitter.com/fschultz_">Twitter</a></li>
+    <li><a href="//github.com/fabe">GitHub</a></li>
+    <li><a href="//stackoverflow.com/users/6941627/fabian-schultz?tab=profile">StackOverflow</a></li>
+  </ol>
+
+  <script>
+    const pictures = document.querySelectorAll('picture, video');
+
+    function rotate(e, el) {
+      const offsetX = e.offsetX;
+      const offsetY = e.offsetY;
+      const bBox = el.getBoundingClientRect();
+      const width = bBox.width / 2;
+      const height = bBox.height / 2;
+      const limit = 3;
+      const rotateX = (height - offsetY) * (limit / height);
+      const rotateY = (width - offsetX) * (limit / width) * -1;
+      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    };
+
+    [].forEach.call(pictures, (el) => {
+      el.onmouseenter = e => rotate(e, el);
+      el.onmousemove = e => rotate(e, el);
+      el.onmouseleave = e =>
+        el.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  </script>
+</body>
+</html>

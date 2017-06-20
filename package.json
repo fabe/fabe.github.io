@@ -1,0 +1,29 @@
+{
+  "name": "fabe.github.io",
+  "version": "1.0.0",
+  "description": "It's my personal website. ✨",
+  "main": "index.js",
+  "scripts": {
+    "css": "node-sass static/css/www.scss static/css/www.css -w --output-style compressed",
+    "serve": "serve",
+    "html": "mustache template/data.json template/index.mustache > index.html",
+    "watch": "watch 'yarn run html' ./template",
+    "dev": "yarn run serve & yarn run css & yarn run watch & livereload ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabe/fabe.github.io.git"
+  },
+  "author": "Fabian Schultz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabe/fabe.github.io/issues"
+  },
+  "homepage": "https://github.com/fabe/fabe.github.io#readme",
+  "dependencies": {
+    "livereload": "^0.6.2",
+    "mustache": "^2.3.0",
+    "node-sass": "^4.5.3",
+    "watch": "^1.0.2"
+  }
+}

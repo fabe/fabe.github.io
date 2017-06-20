@@ -1,0 +1,70 @@
+{
+  "site": {
+    "title": "Fabian Schultz — Frontend & Design"
+  },
+  "work": [{
+      "title": "Delivery",
+      "date": "Q2 2017",
+      "tags": ["Design", "Frontend-Development", "Backend-Development", "React.js"],
+      "url": "https://use.delivery",
+      "image": "delivery",
+      "isBrowser": true
+    },
+    {
+      "title": "Least Authority Website",
+      "date": "Q1 2017",
+      "tags": ["Web Design", "Frontend-Development", "Lektor CMS"],
+      "url": "https://leastauthority.com",
+      "image": "leastauthority",
+      "isBrowser": true
+    },
+    {
+      "title": "Metro College of Technology Website",
+      "date": "Q2 2016",
+      "tags": ["Frontend-Development", "Wordpress"],
+      "url": "http://metroc.ca",
+      "image": "metroc",
+      "isBrowser": true
+    },
+    {
+      "title": "Javelin Networks Website",
+      "date": "Q1 2016",
+      "tags": ["Frontend-Development"],
+      "url": "http://javelin-networks.com",
+      "image": "javelin",
+      "isBrowser": true
+    },
+    {
+      "title": "Momenta",
+      "date": "2013-2015",
+      "tags": ["Co-Founder", "Frontend-Development"],
+      "url": "http://momenta.io",
+      "image": ["momenta-1", "momenta-2", "momenta-3"],
+      "isBrowser": false
+    },
+    {
+      "title": "Typelevel Website",
+      "date": "Q1 2016",
+      "tags": ["Frontend-Development", "Jekyll", "Open-Source"],
+      "url": "http://typelevel.org",
+      "image": "typelevel",
+      "isBrowser": true
+    },
+    {
+      "title": "Wimdu Help Center",
+      "date": "Q4 2015",
+      "tags": ["Web Design", "Frontend-Development", "Zendesk"],
+      "url": "http://www.wimdu.com/contact_requests/new",
+      "image": "wimdu-help",
+      "isBrowser": true
+    },
+    {
+      "title": "Geofilters.co (Sold)",
+      "date": "Q2 2016",
+      "tags": ["Founder"],
+      "url": null,
+      "image": "geofilters",
+      "isBrowser": true
+    }
+  ]
+}
